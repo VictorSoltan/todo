@@ -37,7 +37,7 @@ function App() {
         searchResults={searchResults} setSearchResults={setSearchResults} />
 
         <Routes>
-          {['/todo', '/completed', '/uncompleted'].map((item, index) => (
+          {['/todo/', '/completed', '/uncompleted'].map((item, index) => (
             <Route path={item} key={index} element={
               <TodoItems api_address={api_address} 
                 todoList={todoList} setTodoList={setTodoList}
