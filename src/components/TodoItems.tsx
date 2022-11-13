@@ -24,7 +24,7 @@ export const TodoItems: React.FC<TodoItemsProps> = (
     ) => {
     
     const 
-        filterValues = [{name: 'All', value: '/todo/' }, {name: 'Completed', value: '/completed'}, {name: 'Uncompleted', value: '/uncompleted'}],
+        filterValues = [{name: 'All', value: '/todo' }, {name: 'Completed', value: '/completed'}, {name: 'Uncompleted', value: '/uncompleted'}],
         navigate = useNavigate(),
         location = useLocation(),
         handleSubmit = (e: any) => e.preventDefault(),
@@ -109,7 +109,7 @@ export const TodoItems: React.FC<TodoItemsProps> = (
                 <input placeholder='search...'  onChange={handleSearchChange} />
             </form>
             {searchResults.map((item, index) => (
-                location.pathname === '/todo/' ? todoItem(item, index)
+                location.pathname === '/todo' ? todoItem(item, index)
                 : location.pathname === '/completed'&&item.completed ? todoItem(item, index)
                 : location.pathname === '/uncompleted'&&!item.completed && todoItem(item, index)
             ))}
