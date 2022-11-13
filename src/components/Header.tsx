@@ -53,7 +53,6 @@ export const Header: React.FC<HeaderProps> = (
             .catch(err => {
               throw new Error(err)
             })
-            // setTodoList([])
     }
 
     return(
