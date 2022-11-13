@@ -14,7 +14,7 @@ function App() {
     [todoList, setTodoList] = useState<Array<{title: string, description: string, completed: boolean, dateTime: string, id: string}>>([]),
     [searchResults, setSearchResults] = useState<Array<{title: string, description: string, completed: boolean, dateTime: string, id: string}>>([]),
 
-    api_address = 'https://636f8dc7f2ed5cb047dfe173.mockapi.io/todos/'
+    api_address = 'https://6370b4f70399d1995d82407c.mockapi.io/todo/'
 
   useEffect(() => {
     axios.get(api_address)
@@ -33,7 +33,7 @@ function App() {
       <div className='todo_app'>Todo App</div>
       <div className='todo_app_container'>
         <Header 
-        todoList={todoList} setTodoList={setTodoList} 
+        api_address={api_address} todoList={todoList} setTodoList={setTodoList} 
         searchResults={searchResults} setSearchResults={setSearchResults} />
 
         <Routes>

@@ -7,6 +7,7 @@ import * as yup from "yup";
 import '../styles/Header.scss'
 
 interface HeaderProps {
+    api_address: string;
     todoList: Array<{title: string, description: string, completed: boolean, dateTime: string, id: string}>;
     setTodoList: React.Dispatch<React.SetStateAction<any[]>>;
     searchResults: Array<{title: string, description: string, completed: boolean, dateTime: string, id: string}>; 
@@ -21,7 +22,7 @@ type UserSubmitForm = {
 
 
 export const Header: React.FC<HeaderProps> = (
-    { todoList, setTodoList, searchResults, setSearchResults }
+    { api_address, todoList, setTodoList, searchResults, setSearchResults }
     ) => {
         const schema = yup.object().shape({
             title: yup.string().required('Title required').max(24, 'Max. 24 symbols'),
@@ -44,7 +45,7 @@ export const Header: React.FC<HeaderProps> = (
             time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds(),
             dateTime = date+' '+time;
 
-            axios.post(`${'https://636f8dc7f2ed5cb047dfe173.mockapi.io/todos'}`, {title: title, description: description, dateTime: dateTime, completed: false})
+            axios.post(`${api_address}`, {title: title, description: description, dateTime: dateTime, completed: false})
             .then(res => {
                 console.log(res.data)
                 setTodoList([res.data, ...todoList])

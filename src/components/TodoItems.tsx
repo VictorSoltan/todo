@@ -54,7 +54,6 @@ export const TodoItems: React.FC<TodoItemsProps> = (
     }
 
     function deleteTodo(index: number){
-        console.log(`${api_address}${todoList[index].id}`)
         axios.delete(`${api_address}${todoList[index].id}`)
         .then(res => {
         
